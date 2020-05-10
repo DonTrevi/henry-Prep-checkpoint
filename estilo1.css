@@ -1,0 +1,18 @@
+div {
+    position: absolute;
+    width: 500px;
+    background-color: yellow;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+}
+ul {
+    font-size: 25px;
+    color: red;
+}
+img {
+    position: relative;
+}
+a:visited {
+    color: green;
+}
