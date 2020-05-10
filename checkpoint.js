@@ -6,7 +6,7 @@ function menorMayor(numeros) {
   // que contenga el menor número del arreglo en la posición cero y el mayor número del arreglo en la posición 1.
   // Ej: menorMayor([4, 6, 1, 7, 15]) // retorna [1, 15]
   var menor = numeros[0];
-  var mayor = numero[0];
+  var mayor = numeros[0];
   var vacio = [];
     for(i = 1; i < numeros.length; i++){
       if(menor > numeros[i]) {
@@ -28,7 +28,7 @@ function stringMasLarga(strings) {
   // stringMasLarga(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
   aux = strings[0];
   for(i = 1; i < strings.length; i++){
-    if(aux.length < strings[i]){
+    if(aux.length < strings[i].length){
       aux = strings[i];
     }
   }
@@ -49,7 +49,7 @@ function buscarAmigo(amigos, nombre) {
       return aux;
     }
   }
-  // return 'no se encontró amigo';
+  return 'no se encontró amigo';
 }
 
 function sumArray(array, n) {
@@ -61,8 +61,8 @@ function sumArray(array, n) {
   // sumArray([2,5,7,10,11,15,20], 14)  // retorna false
   // pista: podes usar bucles anidados;
   for(i = 0; i < array.length; i++){
-    for(j = 0; j < array.length; j++){
-      if(array[j] + array[i] === n){
+    for(j = 1; j < array.length; j++){
+      if(array[i] + array[j] === n && i!=j){
         return true;
       }
     }
@@ -123,8 +123,9 @@ function crearClasePersona() {
       // Ej:
       // persona.getFriends() // retorna ['toni', 'Leo', 'Manu']
       aux = this.amigos.map(function(e){
-        return aux;
+        return e.nombre;
       })
+      return aux;
     }
 
     getHobbies() {
@@ -147,13 +148,14 @@ function crearClasePersona() {
       //   }]
       // }
       // persona.getPromedioEdad() // retorna 29
-      const promedio = this.amigos.reduce(function(acc, e){
-        return acc + e.edad / this.amigos.length;
-      },0);
-      return promedio;
-    }
+      var aux = 0;
+      for(i = 0; i < this.amigos.length; i++){
+        aux = aux + this.amigos[i].edad;
+      }
+      var resultado = aux / this.amigos.length;
+      return resultado;
+    }  
   };
-
   return Persona;
 }
 
